@@ -184,12 +184,32 @@ nav a:hover {
   width: 100%;
   margin: 0;
   padding: 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
 }
 
 .photo-section img {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: auto;
-  display: block;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.photo-section .hero-text,
+.photo-section .about {
+  position: relative;
+  z-index: 1;
+  background-color: rgba(26, 26, 26, 0.8);
+  padding: 40px 24px;
+  border-radius: 4px;
+  max-width: 600px;
+  width: 90%;
 }
 
 /* Project CTA section */
