@@ -19,6 +19,11 @@ html, body {
   font-size: 16px;
 }
 
+body {
+  padding-top: 100px;
+}
+
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -30,19 +35,22 @@ html, body {
 .site-header {
   background-color: #1a1a1a;
   border-bottom: none;
-  padding: 10px 0;
-  position: sticky;
+  padding: 15px 0;
+  position: fixed;
   top: 0;
+  left: 0;
+  width: 100%;
   z-index: 100;
 }
 
 .site-header .container {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 60px;
+  justify-content: center;
+  gap: 200px;
   flex-wrap: nowrap;
-  padding: 0 60px;
+  padding: 0 20px;
+  max-width: 100%;
 }
 
 .logo {
@@ -59,12 +67,12 @@ html, body {
   align-items: center;
   text-decoration: none;
   flex-shrink: 0;
-  margin-left: -100px;
+  margin-left: 0;
 }
 
 .logo-img {
   height: 60px;
-  width: auto;
+  width: 200px;
   object-fit: contain;
 }
 
@@ -249,10 +257,32 @@ nav a:hover {
   height: auto;
 }
 
+/* About Me section */
+.about-me-section {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  display: block;
+  height: auto;
+  background-color: #181818;
+}
+
 #aboutMeVideo {
   width: 100%;
   height: auto;
   display: block;
+  -webkit-mask-image: radial-gradient(ellipse 150% 100% at 50% 0%, black 70%, transparent 100%);
+  mask-image: radial-gradient(ellipse 150% 100% at 50% 0%, black 70%, transparent 100%);
+}
+
+.about-me-section::after {
+  content: none;
+}
+
+/* Contact section */
+#contact {
+  background-color: #181818;
 }
 
 .photo-section::after {
@@ -262,7 +292,7 @@ nav a:hover {
   left: 0;
   width: 100%;
   height: 40px;
-  background: linear-gradient(to bottom, transparent, #050505);
+  background: linear-gradient(to bottom, transparent, #1a1a1a);
   pointer-events: none;
   z-index: 10;
 }
@@ -663,7 +693,7 @@ nav a:hover {
 .contact-section {
   position: relative;
   min-height: 100vh;
-  background-color: #050505;
+  background-color: #1a1a1a;
   color: white;
   font-family: 'Open Sans', sans-serif;
   overflow-x: hidden;
@@ -1057,6 +1087,6 @@ nav a:hover {
 
 /* Contact Section Background */
 #contact {
-  background-color: #050505;
+  background-color: #1a1a1a;
 }
 }

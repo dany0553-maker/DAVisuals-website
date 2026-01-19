@@ -21,19 +21,7 @@
   </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container">
-      <a href="index.html" class="logo-link">
-        <img src="Resources/White Vertical.png" alt="DA Visuals Logo" class="logo-img">
-      </a>
-      <nav>
-        <a href="#home">Home</a>
-        <a href="portfolio.html">Portfolio</a>
-        <a href="#photo">About Me</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
-  </header>
+  <script src="js/header.js"></script>
 
   <main id="home">
     <section class="hero video-hero">
@@ -44,13 +32,11 @@
       <a href="portfolio.html" class="video-overlay-button"></a>
     </section>
 
-    <section id="photo" class="photo-section">
+    <section id="about-me" class="about-me-section">
       <video id="aboutMeVideo" src="Resources/about me.mp4" alt="DA Visuals photography" muted playsinline></video>
-
-
     </section>
 
-    <section id="contact" class="text-white selection:bg-white selection:text-black overflow-x-hidden relative">
+    <section id="contact" class="text-white selection:bg-white selection:text-black overflow-x-hidden relative contact-section-wrapper">
       <!-- Main Content -->
       <main class="relative z-10 min-h-screen flex flex-col items-center justify-center px-4 pt-24 pb-12">
         
@@ -156,16 +142,12 @@
       </div>
     </section>
   </main>
-  <footer class="site-footer">
-    <div class="container">
-      © DA Visuals | <a href="privacy-policy.html" class="nav-btn">Privacy Policy</a>
-    </div>
-  </footer>
+  <script src="js/footer.js"></script>
 
   <script>
     // About Me Video Script
     const video = document.getElementById('aboutMeVideo');
-    const photoSection = document.getElementById('photo');
+    const photoSection = document.getElementById('about-me');
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
