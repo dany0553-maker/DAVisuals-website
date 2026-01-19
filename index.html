@@ -5,17 +5,31 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>DA Visuals — צילום ויזואלי</title>
   <link rel="stylesheet" href="styles.css">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;700;900&display=swap');
+    
+    .custom-tracking-contact { letter-spacing: 0.25em; }
+    .custom-tracking-sub { letter-spacing: 0.5em; }
+    .font-350 { font-weight: 350; }
+    .menu-overlay {
+        transition: all 500ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+  </style>
 </head>
 <body>
   <header class="site-header">
     <div class="container">
-      <a href="#home" class="logo-link">
+      <a href="index.html" class="logo-link">
         <img src="Resources/White Vertical.png" alt="DA Visuals Logo" class="logo-img">
       </a>
       <nav>
         <a href="#home">Home</a>
         <a href="portfolio.html">Portfolio</a>
-        <a href="#about">About Me</a>
+        <a href="#photo">About Me</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
@@ -27,49 +41,239 @@
         <source src="Resources/liquid glass.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
+      <a href="portfolio.html" class="video-overlay-button"></a>
     </section>
 
-    <section class="photo-section">
-      <img src="Resources/photo-3.webp" alt="DA Visuals photography">
+    <section id="photo" class="photo-section">
+      <video id="aboutMeVideo" src="Resources/about me.mp4" alt="DA Visuals photography" muted playsinline></video>
 
-      <section class="hero-text container">
-        <h2>צילום ועריכה שמספרים סיפור</h2>
-        <p>יצירת תכנים מקוריים — סטילס ווידאו — בגישה יצירתית ופרסונלית.</p>
-      </section>
 
-      <section id="about" class="about container">
-        <h3>About me</h3>
-        <p>.כל פרויקט בשבילי הוא הזדמנות ליצור משהו חדש, לחשוב מחוץ לקופסה ולהבליט את האופי המיוחד שבו</p>
-        <p>.אשמח ליצור יחד את הפרויקט הבא שלכם ולהביא אותו לחיים בדרך ייחודית ומיוחדת</p>
-      </section>
     </section>
 
-    <section class="project-cta container">
-      <h4>יש לכם פרויקט בראש?</h4>
-      <p>אשמח לשמוע עליו, בין אם זה צילום וידאו או סטילס — אני כאן כדי להפוך אותו למציאות.</p>
-    </section>
+    <section id="contact" class="text-white selection:bg-white selection:text-black overflow-x-hidden relative">
+      <!-- Main Content -->
+      <main class="relative z-10 min-h-screen flex flex-col items-center justify-center px-4 pt-24 pb-12">
+        
+        <!-- Headline -->
+        <div class="text-center mb-32 space-y-4">
+            <h1 class="text-5xl md:text-7xl font-medium custom-tracking-contact uppercase leading-none text-white/90">
+                CONTACT
+            </h1>
+            <div class="flex items-center justify-center gap-6 pt-2">
+                <div class="h-[1px] w-8 bg-white/10"></div>
+                <p class="text-gray-500 text-[9px] md:text-[10px] custom-tracking-sub uppercase font-350">
+                    LET'S TALK ABOUT YOUR PROJECT
+                </p>
+                <div class="h-[1px] w-8 bg-white/10"></div>
+            </div>
+        </div>
 
-    <section id="contact" class="contact container">
-      <h3>GET IN TOUCH</h3>
-      
-      <div class="contact-info">
-        <ul>
-          <li>📞 <a href="tel:+972505770046">+972 50 577 0046</a></li>
-          <li>✉️ <a href="mailto:davisuals1@gmail.com">davisuals1@gmail.com</a></li>
-          <li>📷 <a href="https://www.instagram.com/da.v.i.s.u.a.l.s/" target="_blank">Instagram @da.v.i.s.u.a.l.s</a></li>
-        </ul>
+        <!-- Buttons Row -->
+        <div class="flex flex-col lg:flex-row items-center justify-center gap-6 w-full max-w-7xl">
+            
+            <!-- WHATSAPP BUTTON -->
+            <div id="whatsapp-btn" class="group relative rounded-full border-[3px] border-white/10 bg-white/[0.02] backdrop-blur-md transition-all duration-500 hover:border-white/30 flex items-center justify-between cursor-pointer overflow-hidden h-[110px] w-[340px] pl-5 pr-[45px]">
+                <!-- Main Content -->
+                <div id="whatsapp-content" class="flex items-center justify-between w-full transition-all duration-500 opacity-100 translate-y-0 scale-100">
+                    <div class="p-4 rounded-full border-[2px] border-white/10 bg-white/5 group-hover:border-white/20 transition-all flex-shrink-0">
+                        <i data-lucide="message-circle" class="w-10 h-10 font-light text-white"></i>
+                    </div>
+                    <div class="text-center whitespace-nowrap">
+                        <h3 class="text-[10px] font-bold mb-1 tracking-[0.3em] uppercase text-gray-500 group-hover:text-white transition-colors">WhatsApp</h3>
+                        <p class="text-lg md:text-xl font-light tracking-tighter text-white leading-tight">+972 50 577 0046</p>
+                    </div>
+                </div>
+                <!-- Menu Overlay -->
+                <div id="whatsapp-menu" class="absolute inset-0 px-4 flex items-center justify-center gap-3 transition-all duration-500 bg-black/80 backdrop-blur-2xl opacity-0 translate-y-full pointer-events-none">
+                    <button onclick="openWhatsapp(event)" class="py-3 px-6 rounded-full border-[2px] border-white/20 hover:bg-white hover:text-black transition-all text-[11px] uppercase tracking-[0.1em] font-bold flex items-center gap-2">
+                        <i data-lucide="send" class="w-4 h-4"></i> Chat
+                    </button>
+                    <button id="whatsapp-copy-btn" onclick="copyPhone(event)" class="py-3 px-6 rounded-full border-[2px] border-white/10 bg-white/5 hover:bg-white/10 transition-all text-[11px] uppercase tracking-[0.1em] font-bold flex items-center gap-2">
+                        <i data-lucide="copy" class="w-4 h-4"></i> Copy
+                    </button>
+                    <div onclick="closeMenu(event)" class="p-2 text-gray-500 hover:text-white cursor-pointer text-xl">✕</div>
+                </div>
+            </div>
+
+            <!-- EMAIL BUTTON -->
+            <div id="email-btn" class="group relative rounded-full border-[3px] border-white/10 bg-white/[0.02] backdrop-blur-md transition-all duration-500 hover:border-white/30 flex items-center justify-between cursor-pointer overflow-hidden h-[110px] w-[340px] pl-5 pr-[45px]">
+                <!-- Main Content -->
+                <div id="email-content" class="flex items-center justify-between w-full transition-all duration-500 opacity-100 translate-y-0 scale-100">
+                    <div class="p-4 rounded-full border-[2px] border-white/10 bg-white/5 group-hover:border-white/20 transition-all flex-shrink-0">
+                        <i data-lucide="mail" class="w-10 h-10 font-light text-white"></i>
+                    </div>
+                    <div class="text-center whitespace-nowrap">
+                        <h3 class="text-[10px] font-bold mb-1 tracking-[0.3em] uppercase text-gray-500 group-hover:text-white transition-colors">Email</h3>
+                        <p class="text-lg md:text-xl font-light tracking-tighter text-white lowercase leading-tight">davisuals1@gmail.com</p>
+                    </div>
+                </div>
+                <!-- Menu Overlay -->
+                <div id="email-menu" class="absolute inset-0 px-4 flex items-center justify-center gap-3 transition-all duration-500 bg-black/80 backdrop-blur-2xl opacity-0 translate-y-full pointer-events-none">
+                    <button onclick="openGmail(event)" class="py-3 px-6 rounded-full border-[2px] border-white/20 hover:bg-white hover:text-black transition-all text-[11px] uppercase tracking-[0.1em] font-bold flex items-center gap-2">
+                        <i data-lucide="send" class="w-4 h-4"></i> Gmail
+                    </button>
+                    <button id="email-copy-btn" onclick="copyEmail(event)" class="py-3 px-6 rounded-full border-[2px] border-white/10 bg-white/5 hover:bg-white/10 transition-all text-[11px] uppercase tracking-[0.1em] font-bold flex items-center gap-2">
+                        <i data-lucide="copy" class="w-4 h-4"></i> Copy
+                    </button>
+                    <div onclick="closeMenu(event)" class="p-2 text-gray-500 hover:text-white cursor-pointer text-xl">✕</div>
+                </div>
+            </div>
+
+            <!-- INSTAGRAM BUTTON -->
+            <a href="https://instagram.com/da.v.i.s.u.a.l.s" target="_blank" rel="noopener noreferrer" 
+               class="group relative rounded-full border-[3px] border-white/10 bg-white/[0.02] backdrop-blur-md transition-all duration-500 hover:border-white/30 flex items-center justify-between h-[110px] w-[340px] pl-5 pr-[45px]">
+                <div class="flex items-center justify-between w-full">
+                    <div class="p-4 rounded-full border-[2px] border-white/10 bg-white/5 group-hover:border-white/20 transition-all flex-shrink-0">
+                        <i data-lucide="instagram" class="w-10 h-10 font-light text-white"></i>
+                    </div>
+                    <div class="text-center whitespace-nowrap">
+                        <h3 class="text-[10px] font-bold mb-1 tracking-[0.4em] uppercase text-gray-500 group-hover:text-white transition-colors">Instagram</h3>
+                        <p class="text-lg md:text-xl font-light tracking-tighter text-white">@da.v.i.s.u.a.l.s</p>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+      </main>
+
+      <!-- Footer -->
+      <footer class="relative z-10 w-full p-12 flex flex-col items-center gap-6">
+        <div class="flex flex-col items-center gap-3">
+            <div class="flex items-center gap-3 text-[11px] tracking-[0.6em] uppercase text-gray-400 font-medium">
+                <i data-lucide="map-pin" class="w-4 h-4 text-gray-500"></i>
+                <span>TEL AVIV | WORLDWIDE</span>
+            </div>
+            <div class="h-[1px] w-32 bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
+        </div>
+        <p class="text-[10px] opacity-30 uppercase tracking-[1.2em] font-light">
+            DA VISUALS 2026
+        </p>
+      </footer>
+
+      <!-- Easter Egg -->
+      <div class="fixed bottom-8 right-8 z-20 opacity-10 hover:opacity-100 transition-all duration-700 cursor-help group">
+        <div class="text-[24px] filter grayscale group-hover:grayscale-0 transform group-hover:rotate-12 transition-transform">🚲</div>
       </div>
-
-      <h3 style="margin-bottom: 30px; margin-top: 50px;">SEND ME A MESSAGE</h3>
-
-      <p class="note" style="margin-top: 40px;">
-        <a href="privacy-policy.html">Privacy Policy</a>
-      </p>
     </section>
   </main>
-
   <footer class="site-footer">
-    <div class="container">© DA Visuals</div>
+    <div class="container">
+      © DA Visuals | <a href="privacy-policy.html" class="nav-btn">Privacy Policy</a>
+    </div>
   </footer>
+
+  <script>
+    // About Me Video Script
+    const video = document.getElementById('aboutMeVideo');
+    const photoSection = document.getElementById('photo');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          video.currentTime = 0;
+          setTimeout(() => {
+            video.play();
+          }, 500);
+        } else {
+          video.pause();
+        }
+      });
+    }, { threshold: 0.1 });
+
+    observer.observe(photoSection);
+
+    video.addEventListener('ended', () => {
+      video.pause();
+    });
+
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    // Contact Section Script
+    const phoneNumber = "+972 50 577 0046";
+    const rawPhoneNumber = "972505770046";
+    const myEmail = "davisuals1@gmail.com";
+    const whatsappMsg = encodeURIComponent("היי דניאל, ראיתי את האתר שלך ואשמח לדבר איתך על פרויקט וידאו/סטילס!");
+
+    // Menu Toggle Logic
+    let activeMenu = null;
+
+    function toggleMenu(menuName) {
+        const menus = ['whatsapp', 'email'];
+        
+        menus.forEach(m => {
+            const menuEl = document.getElementById(`${m}-menu`);
+            const contentEl = document.getElementById(`${m}-content`);
+            
+            if (m === menuName && activeMenu !== menuName) {
+                menuEl.classList.remove('opacity-0', 'translate-y-full', 'pointer-events-none');
+                menuEl.classList.add('opacity-100', 'translate-y-0');
+                contentEl.classList.add('opacity-0', '-translate-y-full', 'scale-90');
+                contentEl.classList.remove('opacity-100', 'translate-y-0', 'scale-100');
+            } else {
+                menuEl.classList.add('opacity-0', 'translate-y-full', 'pointer-events-none');
+                menuEl.classList.remove('opacity-100', 'translate-y-0');
+                contentEl.classList.remove('opacity-0', '-translate-y-full', 'scale-90');
+                contentEl.classList.add('opacity-100', 'translate-y-0', 'scale-100');
+            }
+        });
+
+        activeMenu = activeMenu === menuName ? null : menuName;
+    }
+
+    // Close all menus
+    function closeMenu(e) {
+        e.stopPropagation();
+        toggleMenu(null);
+    }
+
+    // Button Click Listeners
+    document.getElementById('whatsapp-btn').addEventListener('click', () => toggleMenu('whatsapp'));
+    document.getElementById('email-btn').addEventListener('click', () => toggleMenu('email'));
+
+    // Action Functions
+    function openWhatsapp(e) {
+        e.stopPropagation();
+        window.open(`https://wa.me/${rawPhoneNumber}?text=${whatsappMsg}`, '_blank');
+    }
+
+    function openGmail(e) {
+        e.stopPropagation();
+        const emailSubject = encodeURIComponent("פנייה דרך האתר - DA Visuals");
+        const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=${myEmail}&su=${emailSubject}`;
+        window.open(gmailLink, '_blank');
+    }
+
+    // Copy Functionality
+    function copyToClipboard(text, btnId) {
+        const el = document.createElement('textarea');
+        el.value = text;
+        document.body.appendChild(el);
+        el.select();
+        document.execCommand('copy');
+        document.body.removeChild(el);
+
+        const btn = document.getElementById(btnId);
+        const originalContent = btn.innerHTML;
+        
+        btn.innerHTML = `<i data-lucide="check" class="w-4 h-4 text-green-400"></i> Done`;
+        lucide.createIcons();
+        
+        setTimeout(() => {
+            btn.innerHTML = originalContent;
+            lucide.createIcons();
+        }, 2000);
+    }
+
+    function copyPhone(e) {
+        e.stopPropagation();
+        copyToClipboard(phoneNumber, 'whatsapp-copy-btn');
+    }
+
+    function copyEmail(e) {
+        e.stopPropagation();
+        copyToClipboard(myEmail, 'email-copy-btn');
+    }
+  </script>
 </body>
 </html>
